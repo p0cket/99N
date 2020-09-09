@@ -25,6 +25,9 @@ public class Player : MonoBehaviour {
     bool wallSliding;
 	int wallDirX;
 
+    // Dust
+    public ParticleSystem dust;
+
     // State
     bool isAlive = true;
     //bool wallSliding = false;
@@ -172,8 +175,12 @@ public class Player : MonoBehaviour {
                 float controlThrow = CrossPlatformInputManager.GetAxis("Horizontal");
                 Vector2 jumpOffVelocityToAdd = new Vector2(controlThrow, wallJumpOff);
                 myRigidBody.velocity = jumpOffVelocityToAdd;
+                // CreateDust();
             }
 		}
+
+        // CreateDust();
+        // StopDust();
 
         if (!myFeet.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
 
@@ -186,6 +193,7 @@ public class Player : MonoBehaviour {
                 // Debug.Log(myRigidBody.velocity.x);
                 // Debug.Log(jumpVelocityToAdd);
                 myRigidBody.velocity += jumpVelocityToAdd;
+                // CreateDust();
         }
     }
 
@@ -202,11 +210,29 @@ public class Player : MonoBehaviour {
 
     private void FlipSprite()
     {
+        // Debug.log('Created Dust')
+
         bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
+        // if(Mathf.Abs(myRigidBody.velocity.x) === 0){
+        //     CreateDust();
+        // }
+
         if (playerHasHorizontalSpeed)
         {
             transform.localScale = new Vector2(Mathf.Sign(myRigidBody.velocity.x), 1f);
         }
+    }
+
+    public void CreateDust() 
+    {
+        Debug.Log('d');
+        // dust.Emit();
+        dust.Play();
+    }
+        public void StopDust() 
+    {
+        Debug.Log('s');
+        dust.Stop();
     }
 
 }

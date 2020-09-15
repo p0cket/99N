@@ -214,11 +214,12 @@ public class Player : MonoBehaviour {
 
         bool playerHasHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
         // if(Mathf.Abs(myRigidBody.velocity.x) === 0){
-        //     CreateDust();
+            // CreateDust();
         // }
 
         if (playerHasHorizontalSpeed)
         {
+            // CreateDust();
             transform.localScale = new Vector2(Mathf.Sign(myRigidBody.velocity.x), 1f);
         }
     }

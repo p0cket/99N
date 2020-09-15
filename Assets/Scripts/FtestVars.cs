@@ -15,8 +15,9 @@ public class FtestVars : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int firstNum = flowchart.GetIntegerVariable("myNum");
-        Debug.Log(firstNum);
+        // Uncomment Below if you need it
+        // int firstNum = flowchart.GetIntegerVariable("myNum");
+        // Debug.Log(firstNum);
     }
 }
 

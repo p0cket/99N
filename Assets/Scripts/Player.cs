@@ -14,7 +14,9 @@ public class Player : MonoBehaviour {
 
     // wall jump
     public Vector2 wallJumpClimb;
-	//public Vector2 wallJumpOff;
+
+	// public Vector2 wallJumpOff;
+
     public float wallJumpOff = 20f;
 	public Vector2 wallLeap;
 
